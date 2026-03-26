@@ -6,25 +6,48 @@
 import React, { useState } from 'react';
 import { Printer } from 'lucide-react';
 
-const LotusIcon = () => (
-  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-    {/* Petals - Pink/Purple */}
-    {/* Outer Petals */}
-    <path d="M50 75 Q 20 75 15 50 Q 15 25 50 35 Q 85 25 85 50 Q 80 75 50 75" stroke="#9333ea" strokeWidth="2" fill="none" />
-    {/* Inner Petals */}
-    <path d="M50 75 Q 30 75 25 50 Q 25 30 50 40 Q 75 30 75 50 Q 70 75 50 75" stroke="#db2777" strokeWidth="2" fill="none" />
-    {/* Central Petal */}
-    <path d="M50 75 Q 40 75 40 50 Q 40 20 50 20 Q 60 20 60 50 Q 60 75 50 75" stroke="#db2777" strokeWidth="2" fill="none" />
+const LotusLogo = () => (
+  <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+    <defs>
+      {/* Path for the arched text */}
+      <path id="textArc" d="M 15 55 A 45 45 0 0 1 105 55" />
+      {/* Glow effect for neon style */}
+      <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="1.2" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
     
-    {/* Green Base Leaves */}
-    <path d="M50 75 Q 35 75 30 85 Q 40 90 50 85 Q 60 90 70 85 Q 65 75 50 75" fill="#22c55e" />
-    <path d="M30 85 Q 20 80 15 70 Q 25 70 30 85" fill="#22c55e" />
-    <path d="M70 85 Q 80 80 85 70 Q 75 70 70 85" fill="#22c55e" />
+    {/* Arched Text */}
+    <text fill="#1f2937" fontSize="7" fontWeight="bold" fontFamily="serif" letterSpacing="0.2">
+      <textPath href="#textArc" startOffset="50%" textAnchor="middle">
+        Dhamma Lann Vipassanā Center
+      </textPath>
+    </text>
 
-    {/* Blue Base Lines */}
-    <path d="M30 92 H 70" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" />
-    <path d="M35 95 H 65" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" />
-    <path d="M40 98 H 60" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" />
+    <g transform="translate(10, 20)">
+      {/* Lotus Petals - Neon Style */}
+      <g filter="url(#neonGlow)">
+        {/* Outer Petals */}
+        <path d="M50 75 Q 10 75 5 45 Q 5 15 50 25 Q 95 15 95 45 Q 90 75 50 75" stroke="#9333ea" strokeWidth="1.5" fill="none" />
+        {/* Inner Petals */}
+        <path d="M50 75 Q 20 75 15 45 Q 15 20 50 30 Q 85 20 85 45 Q 80 75 50 75" stroke="#db2777" strokeWidth="1.5" fill="none" />
+        {/* Center Petal */}
+        <path d="M50 75 Q 38 75 35 45 Q 35 10 50 10 Q 65 10 65 45 Q 62 75 50 75" stroke="#db2777" strokeWidth="1.5" fill="none" />
+      </g>
+      
+      {/* Green Base Leaves */}
+      <path d="M50 75 Q 35 75 30 85 Q 40 90 50 85 Q 60 90 70 85 Q 65 75 50 75" fill="#16a34a" />
+      <path d="M30 85 Q 15 80 10 65 Q 25 65 30 85" fill="#16a34a" />
+      <path d="M70 85 Q 85 80 90 65 Q 75 65 70 85" fill="#16a34a" />
+
+      {/* Blue Base Lines */}
+      <path d="M25 92 H 75" stroke="#2563eb" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M35 96 H 65" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" />
+    </g>
   </svg>
 );
 
@@ -155,7 +178,7 @@ export default function App() {
             <div className="relative mt-8 mb-6">
               {/* Left Lotus */}
               <div className="absolute left-12 top-0 w-28 h-28">
-                <LotusIcon />
+                <LotusLogo />
               </div>
 
               <TopDecoration />
@@ -167,7 +190,7 @@ export default function App() {
 
               {/* Right Lotus */}
               <div className="absolute right-12 top-0 w-28 h-28">
-                <LotusIcon />
+                <LotusLogo />
               </div>
             </div>
 
