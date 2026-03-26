@@ -1,0 +1,5 @@
+{
+  "name": "Certificate Generator",
+  "description": "A professional certificate generator with live preview and PDF export capabilities, featuring custom SVG decorations and Myanmar language support.",
+  "requestFramePermissions": []
+}
